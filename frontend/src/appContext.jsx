@@ -1,6 +1,6 @@
 import {
   createContext,
-  useContext,
+  use,
   useEffect,
   useState,
   useCallback,
@@ -53,6 +53,7 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     // Initial fetch
     fetchInsightsData();
+    fetchMapData();
     const fetchInterval = setInterval(() => {
       fetchMapData();
       fetchInsightsData();
@@ -79,7 +80,7 @@ export const ContextProvider = ({ children }) => {
 };
 
 export const useBinContext = () => {
-  const context = useContext(appContext);
+  const context = use(appContext);
   if (!context) {
     throw new Error("useBinContext must be used within a ContextProvider");
   }

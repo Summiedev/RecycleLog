@@ -23,11 +23,9 @@ app.use(morgan("dev"));
 // Connect to DB
 connectDB();
 
-(async () => await saveAIInsights())();
-
 // Schedule AI insights generation to run every 40 minutes
 cron.schedule(
-  "*/40 * * * *",
+  "*/5 * * * *",
   async () => {
     console.log("🤖 Every 40 minutes: Starting AI insights generation...");
     try {
@@ -55,9 +53,9 @@ cron.schedule("*/9 * * * * *", async () => {
 });
 
 // Schedule updating bin fill percent every 30 seconds
-cron.schedule("*/10 * * * * *", async () => {
+cron.schedule("*/27 * * * * *", async () => {
   try {
-    const randomTimes = Math.floor(Math.random() * 5) + 1; // Randomly update 1-3 times
+    const randomTimes = Math.floor(Math.random() * 5) + 1;
     for (let i = 0; i < randomTimes; i++) {
       await updateBinFillPercent();
     }
@@ -69,7 +67,7 @@ cron.schedule("*/10 * * * * *", async () => {
 // Schedule emptying bins every 3 minutes
 cron.schedule("*/3 * * * *", async () => {
   try {
-    const randomTimes = Math.floor(Math.random() * 10) + 1;
+    const randomTimes = Math.floor(Math.random() * 5) + 1;
     for (let i = 0; i < randomTimes; i++) {
       await emptyBin();
     }
