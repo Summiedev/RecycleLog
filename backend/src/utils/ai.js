@@ -2,6 +2,7 @@ const OpenAI = require("openai");
 const Bin = require("../models/Bin");
 const Recommendation = require("../models/Recommendation");
 require("dotenv").config();
+const connectDB = require("./db");
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
@@ -242,7 +243,7 @@ IMPORTANT: Return ONLY the JSON object, no additional text or explanations.
     console.log("🤖 Making AI API call...");
 
     const completion = await openai.chat.completions.create({
-      model: "deepseek/deepseek-r1-0528:free",
+      model: "tngtech/deepseek-r1t-chimera:free",
       messages: [
         {
           role: "system",
