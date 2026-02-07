@@ -242,7 +242,7 @@ IMPORTANT: Return ONLY the JSON object, no additional text or explanations.
     console.log("🤖 Making AI API call...");
 
     const completion = await openai.chat.completions.create({
-      model: "deepseek/deepseek-chat-v3-0324:free",
+      model: "deepseek/deepseek-r1-0528:free",
       messages: [
         {
           role: "system",
@@ -381,7 +381,7 @@ async function saveAIInsights() {
     } catch (fallbackError) {
       console.error(
         "❌ Failed to save fallback recommendation:",
-        fallbackError
+        fallbackError,
       );
     }
 

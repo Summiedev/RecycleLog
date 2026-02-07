@@ -55,7 +55,8 @@ export const ContextProvider = ({ children }) => {
     fetchInsightsData();
     const fetchInterval = setInterval(() => {
       fetchMapData();
-    }, 20000);
+      fetchInsightsData();
+    }, 30000);
     // Cleanup function
     return () => {
       clearInterval(fetchInterval);
