@@ -25,7 +25,7 @@ connectDB();
 
 // Schedule AI insights generation to run every 40 minutes
 cron.schedule(
-  "*/5 * * * *",
+  "*/40 * * * *",
   async () => {
     console.log("🤖 Every 40 minutes: Starting AI insights generation...");
     try {
